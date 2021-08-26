@@ -39,11 +39,8 @@ jobs:
            sudo npm install sfdx-git-delta@latest -g
       - name: Test
         run: |
-            git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/master'
-            git fetch --all
-            git checkout -b pr
-            git --no-pager diff --name-status pr origin/master
-            sgd --to pr --from origin/master --repo . --output .
+          
+            sgd --to HEAD --from HEAD^ --repo . --output .
             cat package/package.xml
 
       # Runs a set of commands using the runners shell
