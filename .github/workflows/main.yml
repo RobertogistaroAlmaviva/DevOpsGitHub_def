@@ -39,11 +39,7 @@ jobs:
            sudo npm install sfdx-git-delta@latest -g
       - name: Test
         run: |
-            git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-            git fetch --all
-            git --no-pager diff --name-status staging origin/master
-
-            sgd --to staging --from origin/master --repo . --output .
+            sgd --to "93389aa8d09f7e1b1c0a98bc3bc4419b4423884d" --from "e57a2e2187c38c639717cc303a620bf580605e48" --repo . --output .
             cat package/package.xml
 
       # Runs a set of commands using the runners shell
