@@ -6,6 +6,6 @@ public class AccountProcessor {
        for(AggregateResult aa:a) MapAC.put((ID)aa.get('accountid'),(integer)aa.get('cont'));
        List<Account> accupt=new List<Account>();
         for(Id ii:idA) accupt.add(new Account(ID=ii,Number_of_Contacts__c=MapAc.get(ii)));
-           
+           //
     }
 }
