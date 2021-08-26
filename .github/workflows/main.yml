@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install
         run: |
-          sudo npm install sfdx-git-delta@latest -g
+          sudo sfdx plugins:install sfdx-git-delta
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
