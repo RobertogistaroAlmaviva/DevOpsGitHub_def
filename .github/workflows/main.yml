@@ -5,10 +5,10 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
-  # pull_request:
+  #push:
   #  branches: [ master ]
+   pull_request:
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,8 +39,10 @@ jobs:
            sudo npm install sfdx-git-delta@latest -g
       - name: Test
         run: |
-            sgd --to "93389aa8d09f7e1b1c0a98bc3bc4419b4423884d" --from "e57a2e2187c38c639717cc303a620bf580605e48"  --output .
-            cat package/package.xml
+            git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+            git fetch --all
+            git checkout -b pr
+            git --no-pager diff --name-status pr origin/master
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
