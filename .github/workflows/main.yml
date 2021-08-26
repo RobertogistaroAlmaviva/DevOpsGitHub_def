@@ -37,7 +37,9 @@ jobs:
       - name: Install Delta
         run: |
            sudo npm install sfdx-git-delta@latest -g
-
+      - name: Test
+        run: |
+            sudo node_modules/sfdx-cli/bin/run sgd:source:delta --to "HEAD" --from "HEAD~1^" --output .
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
