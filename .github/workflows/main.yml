@@ -39,6 +39,7 @@ jobs:
            sudo npm install sfdx-git-delta@latest -g
       - name: Test
         run: |
+            sudo mkdir test
             sudo  sgd --to "HEAD" --from "HEAD~1^" --output .
 
       # Runs a set of commands using the runners shell
