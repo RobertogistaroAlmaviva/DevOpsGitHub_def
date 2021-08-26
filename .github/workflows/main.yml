@@ -41,7 +41,7 @@ jobs:
             git fetch --all
             git checkout -b pr
             git --no-pager diff --name-status pr origin/master
-            git --to pr --from origin/master --repo . --output .
+            sgd --to pr --from origin/master --repo . --output .
             cat package/package.xml
 
       # Runs a set of commands using the runners shell
