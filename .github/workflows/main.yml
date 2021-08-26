@@ -36,7 +36,7 @@ jobs:
           sudo node_modules/sfdx-cli/bin/run plugins --core
       - name: Install Delta
         run: |
-           echo sudo node_modules/sfdx-cli/bin/run --version
+           sudo node_modules/sfdx-cli/bin/run plugins:install sfdx-git-delta
 
 
       # Runs a set of commands using the runners shell
