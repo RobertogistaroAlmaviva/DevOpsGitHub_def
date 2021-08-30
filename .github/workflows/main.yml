@@ -50,7 +50,7 @@ jobs:
             sgd --to pr --from origin/master --repo . --output .
             cat package/package.xml
       - name: Convert Metadata
-        run: sudo node_modules/sfdx-cli/bin/run force:source:convert --manifest=package/package.xml --output=convert
+        run: sudo node_modules/sfdx-cli/bin/run force:source:convert --manifest=package/package.xml --outputdir=convert
       - name: Run test on metadata
         run: sudo node_modules/sfdx-cli/bin/run force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly  -w30
 
