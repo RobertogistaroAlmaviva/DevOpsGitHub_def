@@ -37,7 +37,7 @@ jobs:
         run: |
           openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out server.key  -base64 -K ${{secrets.DECRYPTION_KEY}} -iv ${{secrets.DECRYPTION_IV}}
       - name: Authorize
-        run: 	sudo node_modules/sfdx-cli/bin/run auth:jwt:grant --clientid=${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username=${{secrets.USERNAME}} --instanceurl https://roberto2-dev-ed.my.salesforce.com
+        run: 	sudo node_modules/sfdx-cli/bin/run auth:jwt:grant --clientid=${{secrets.CONSUMER_KEY}} --jwtkeyfile server.key --username=${{secrets.USERNAME}} --instanceurl https://roberto2-dev-ed.my.salesforce.com --setdefaultdevhubusername --setalis=hub-org
       - name: Install Delta
         run: |
            sudo npm install sfdx-git-delta@latest -g
