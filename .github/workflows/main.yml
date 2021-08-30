@@ -52,5 +52,7 @@ jobs:
       - name: Convert Metadata
         run: sudo node_modules/sfdx-cli/bin/run force:source:convert --manifest=package/package.xml --outputdir=convert
       - name: Run test on metadata
-        run: sudo node_modules/sfdx-cli/bin/run force:source:deploy -x package/package.xml
+        run: |
+            sudo node_modules/sfdx-cli/bin/run config:set defaultusername=${{secrets.USERNAME}} --global
+            sudo node_modules/sfdx-cli/bin/run force:source:deploy -x package/package.xml
 
