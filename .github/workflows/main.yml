@@ -49,14 +49,6 @@ jobs:
             git --no-pager diff --name-status pr origin/master
             sgd --to pr --from origin/master --repo . --output .
             cat package/package.xml
-      - name: Diff
-        run: |
-            git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-            git fetch --all
-            git checkout -b pr
-            git --no-pager diff --name-status pr origin/master
-            sgd --to pr --from origin/master --repo . --output .
-            cat package/package.xml
       - name: Convert Metadata
         run: sudo node_modules/sfdx-cli/bin/run force:source:convert --manifest=package/package.xml --output=convert
       - name: Run test on metadata
