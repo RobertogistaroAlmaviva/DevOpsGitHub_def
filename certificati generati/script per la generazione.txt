@@ -1,5 +1,7 @@
 tutorial :https://www.youtube.com/watch?v=_eOXnb9pQAg
+AUTENTICAZIONE JWT - da gitHub
 
+------------------------------------------------------
 SCRIPT PER GENERARE CERTIFICATO
 
 openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
@@ -7,11 +9,27 @@ openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.
 
-------------------------------------------------------------------------------------------
-SCRIPT PER DESCRIPTARE IL SERVER:KEY
+genera un certificato che deve essere caricato in connected app
+--> SERVER.KEY
+--> SERVER.CRT
+
+creare app connessa
+-->CONSUMER.KEY: 3MVG9I5UQ_0k_hTl3bJC8SFiM0kvMMo17wlIwIkVI7mXfpdh935AmQjE35_8nQsin15O38Lkp8X8_dbDhRIgF
+-->USERNAME:robertogigi@enigen.com
+
+caricare SERVER.KEY
+---------------------------------------------------------
+GENERA SERVER.KEY.ENC (nella stessa directory nella quale solo presenti i server.key e server.crt) in modo da non salvare la chiave criptata da nessuna parte
 openssl enc -aes-256-cbc -k 12345 -P -md sha1 -nosalt
 --> key=8CB2237D0679CA88DB6464EAC60DA96345513964D4F5EC90C4B6A22B810B337F
-    iv =E1786DC9EC34036F6DA24067A92E39CA
+--> iv =E1786DC9EC34036F6DA24067A92E39CA
 openssl enc -nosalt -aes-256-cbc -in server.key -out server.key.enc -base64 -K 8CB2237D0679CA88DB6464EAC60DA96345513964D4F5EC90C4B6A22B810B337F -iv E1786DC9EC34036F6DA24067A92E39CA
---> genera server.key.enc
+--> genera server.key.enc (versione decriptata della server.key, da caricare in repo sotto la directory assets/)
+openssl enc -nosalt -aes-256-cbc -d -in server.key.enc -out server2.key  -base64 -K 8CB2237D0679CA88DB6464EAC60DA96345513964D4F5EC90C4B6A22B810B337F -iv E1786DC9EC34036F6DA24067A92E39CA
+--> genera nuovamente la SERVER.KEY dando in pasto la key, iv e il file .enc creati nei due step precedenti
+----------------------------------------------------------
+AUTENTICAZIONE
+sfdx auth:jwt:grant --clientid  --jwtkeyfile server2.key --username   --instanceurl https://roberto2-dev-ed.my.salesforce.com
+
+
 
