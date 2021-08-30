@@ -27,14 +27,17 @@ jobs:
           node-version: '>=14'
           check-latest:  true 
       # Runs a single command using the runners shell
-      - name: Stampo
-        run: |
-          echo value ${{secrets.TEST}}
+     
       - name: Install CLI
         run: |
           sudo npm install sfdx-cli
           sudo node_modules/sfdx-cli/bin/run --version
           sudo node_modules/sfdx-cli/bin/run plugins --core
+      - name: Stampo
+        run: |
+           sudo node_modules/sfdx-cli/bin/run auth:jwt:grant --clientid 3MVG9I5UQ_0k_hTl3bJC8SFiM0kvMMo17wlIwIkVI7mXfpdh935AmQjE35_8nQsin15O38Lkp8X8_dbDhRIgF --jwtkeyfile C:\Users\R.Gistaro\Documents\Devops\DevOpsGitHub_def\certificati_generati\server.key --username  robertogigi@enigen.com --instanceurl https://roberto2-dev-ed.my.salesforce.com
+
+          
       - name: Install Delta
         run: |
            sudo npm install sfdx-git-delta@latest -g

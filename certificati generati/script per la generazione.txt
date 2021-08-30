@@ -1,0 +1,7 @@
+openssl genrsa -des3 -passout pass:SomePassword -out server.pass.key 2048
+openssl rsa -passin pass:SomePassword -in server.pass.key -out server.key
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt
+
+
+CONSUMER KEY 3MVG9I5UQ_0k_hTl3bJC8SFiM0ob4bGNOZnU04bvKv_1RmrtV8Xv5DkcwePWiP0.LwliIWFkxlqIKehakNmWB
