@@ -44,7 +44,6 @@ node {
 			}
 			
 			
-            printf rmsg
             println('Hello from a Job DSL script!')
             println(rmsg)
         }
