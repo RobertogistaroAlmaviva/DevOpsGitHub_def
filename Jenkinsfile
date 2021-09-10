@@ -14,7 +14,9 @@ node {
     def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH_demo
 
     println 'KEY IS****' 
+
     println JWT_KEY_CRED_ID
+    println env.PATH
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
