@@ -3,7 +3,7 @@
   "overrides": [
     {
       "files": ["*.test.js"],
-      "rules": {
+      "ruless": {
         "@lwc/lwc/no-unexpected-wire-adapter-usages": "off"
       }
     }
