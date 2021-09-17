@@ -17,7 +17,7 @@
         </classpath>
     </taskdef>
 	
-     <target  name="deployCode" depends="proxy">
+     <target  name="deployCode">
                 <sf:deploy 
                         username="{sf.username}"
                         password="{sf.password}"
