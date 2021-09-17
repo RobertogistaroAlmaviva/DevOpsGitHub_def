@@ -19,8 +19,8 @@
 	
      <target  name="deployCode">
                 <sf:deploy 
-                        username="{sf.username}"
-                        password="{sf.password}"
+                        username="robertogigi@enigen.com"
+                        password="ruben__889yRbIQn1OgOkqzOkR2tkzHnY"
                         serverurl="https://login.salesforce.com"
                         maxPoll="1000"
                         deployRoot="converted_package"
