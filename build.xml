@@ -21,7 +21,7 @@
                 <sf:deploy 
                         username="{sf.username}"
                         password="{sf.password}"
-                        serverurl="{sf.serverurl}"
+                        serverurl="https://login.salesforce.com"
                         maxPoll="1000"
                         deployRoot="converted_package"
                         pollWaitMillis="10000"
