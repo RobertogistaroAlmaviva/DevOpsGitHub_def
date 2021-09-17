@@ -27,8 +27,6 @@
                         pollWaitMillis="10000"
                         rollbackOnError="true"
                         checkOnly="true"
-                        testlevel="RunLocalTests"
+                        testlevel="RunSpecifiedTests"
                         logType="Debugonly"
-                />
-    </target>
-</project>
+              
