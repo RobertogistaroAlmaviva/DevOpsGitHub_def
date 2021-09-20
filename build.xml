@@ -16,7 +16,8 @@
             <pathelement location="D:\Ant\apache-ant-1.9.16\lib\ant-salesforce.jar" />        	
         </classpath>
     </taskdef>
-	
+	  <record name="deploylog.txt" action="start"/>
+
      <target  name="deployCode">
                 <sf:deploy 
                         username="robertogigi@enigen.com"
